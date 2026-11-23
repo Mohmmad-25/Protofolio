@@ -1,21 +1,23 @@
 /* =========================================================
    Connect Webia — Operations · Design tokens
-   المصدر: Company profile (Connect Webia).pdf
-   - الكحلي  #212547 (خلفية الهوية)  - البرتقالي #F26A3A (لون الإجراء)
-   - الخط: Montserrat (مضمّن في ملف الهوية) + خط عربي مرافق
+   المصدر: CONNECT_WEBIA_LOGO.pdf (لوحة الألوان الرسمية)
+   - الكحلي #112144 · البرتقالي #F36C39 · الرمادي #DADADB
+   - الشعار: Myriad Pro (مدفوع) ← البديل في الواجهة: Source Sans 3
+   - الشعار نفسه ملفات SVG مستخرجة من الملف الأصلي: assets/brand/
    غيّر أي قيمة هنا فتتغير في كل الشاشات.
    ========================================================= */
 :root {
   /* Brand */
-  --brand-navy-950: #11142B;
-  --brand-navy-900: #161938;
-  --brand-navy-800: #1C2042;
-  --brand-navy-700: #212547;
-  --brand-navy-600: #2D3157;
-  --brand-navy-500: #43476B;
-  --brand-orange-600: #D9521F;
-  --brand-orange-500: #F26A3A;
-  --brand-orange-400: #F58A62;
+  --brand-navy-950: #08122B;
+  --brand-navy-900: #0C1835;
+  --brand-navy-800: #0E1C3D;
+  --brand-navy-700: #112144;   /* official */
+  --brand-navy-600: #1E3060;
+  --brand-navy-500: #3A4B78;
+  --brand-orange-600: #DC5523;
+  --brand-orange-500: #F36C39; /* official */
+  --brand-orange-400: #F68D66;
+  --brand-gray: #DADADB;       /* official */
 
   /* Surfaces & ink (light) */
   --bg: #F4F5FA;
@@ -23,15 +25,15 @@
   --surface-2: #F8F9FC;
   --surface-sunken: #EEF0F6;
   --border: #E3E5EE;
-  --border-strong: #CBCFDD;
-  --ink: #161938;
-  --ink-2: #4A4E6A;
-  --ink-3: #7C809A;
+  --border-strong: var(--brand-gray);
+  --ink: #112144;
+  --ink-2: #47526E;
+  --ink-3: #78819A;
   --accent: var(--brand-orange-500);
   --accent-hover: var(--brand-orange-600);
   --accent-soft: #FDEBE3;
   --accent-ink: #B4431A;
-  --focus: #F26A3A66;
+  --focus: #F36C3966;
 
   /* Sidebar (navy in both themes) */
   --side-bg: var(--brand-navy-700);
@@ -53,42 +55,42 @@
   --chart-grid: #E8EAF2;
 
   /* Type */
-  --font-sans: "Montserrat", "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
-  --font-num: "Montserrat", "IBM Plex Sans Arabic", sans-serif;
-  --fs-xs: .75rem; --fs-sm: .8125rem; --fs-md: .875rem; --fs-lg: 1rem;
+  --font-sans: "Source Sans 3", "IBM Plex Sans Arabic", "Myriad Pro", "Segoe UI", Tahoma, sans-serif;
+  --font-num: "Source Sans 3", "IBM Plex Sans Arabic", "Myriad Pro", sans-serif;
+  --fs-xs: .8125rem; --fs-sm: .875rem; --fs-md: .9375rem; --fs-lg: 1.0625rem;
   --fs-xl: 1.25rem; --fs-2xl: 1.625rem; --fs-3xl: 2.125rem;
 
   /* Space, radius, shadow */
   --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px;
   --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-pill: 999px;
-  --shadow-1: 0 1px 2px #1619380D, 0 1px 1px #16193808;
-  --shadow-2: 0 8px 24px #16193814;
+  --shadow-1: 0 1px 2px #1121440D, 0 1px 1px #11214408;
+  --shadow-2: 0 8px 24px #11214414;
   --sidebar-w: 264px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0F1226; --surface: #181C36; --surface-2: #1D2140; --surface-sunken: #13162E;
-    --border: #2A2F52; --border-strong: #3B4170;
+    --bg: #0A1430; --surface: #121F42; --surface-2: #17264D; --surface-sunken: #0D1938;
+    --border: #22325C; --border-strong: #34467A;
     --ink: #EEF0FA; --ink-2: #B9BDD6; --ink-3: #868BAA;
-    --accent-soft: #F26A3A22; --accent-ink: #F58A62;
-    --side-bg: #11142B; --side-bg-2: #0C0F22;
+    --accent-soft: #F36C3922; --accent-ink: #F58A62;
+    --side-bg: #0C1835; --side-bg-2: #08122B;
     --good: #3CC58E; --good-soft: #3CC58E1F; --warn: #E3A94B; --warn-soft: #E3A94B1F;
     --bad: #EF6B62; --bad-soft: #EF6B621F; --info: #8F9AE6; --info-soft: #8F9AE61F;
-    --series-1: #E2632F; --series-2: #7480D8; --series-3: #16A08F; --chart-grid: #262B4A;
+    --series-1: #E2632F; --series-2: #7480D8; --series-3: #16A08F; --chart-grid: #1F2E55;
     --shadow-1: 0 1px 2px #0006; --shadow-2: 0 8px 24px #0008;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0F1226; --surface: #181C36; --surface-2: #1D2140; --surface-sunken: #13162E;
-  --border: #2A2F52; --border-strong: #3B4170;
+  --bg: #0A1430; --surface: #121F42; --surface-2: #17264D; --surface-sunken: #0D1938;
+  --border: #22325C; --border-strong: #34467A;
   --ink: #EEF0FA; --ink-2: #B9BDD6; --ink-3: #868BAA;
-  --accent-soft: #F26A3A22; --accent-ink: #F58A62;
-  --side-bg: #11142B; --side-bg-2: #0C0F22;
+  --accent-soft: #F36C3922; --accent-ink: #F58A62;
+  --side-bg: #0C1835; --side-bg-2: #08122B;
   --good: #3CC58E; --good-soft: #3CC58E1F; --warn: #E3A94B; --warn-soft: #E3A94B1F;
   --bad: #EF6B62; --bad-soft: #EF6B621F; --info: #8F9AE6; --info-soft: #8F9AE61F;
-  --series-1: #E2632F; --series-2: #7480D8; --series-3: #16A08F; --chart-grid: #262B4A;
+  --series-1: #E2632F; --series-2: #7480D8; --series-3: #16A08F; --chart-grid: #1F2E55;
   --shadow-1: 0 1px 2px #0006; --shadow-2: 0 8px 24px #0008;
   color-scheme: dark;
 }

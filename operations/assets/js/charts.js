@@ -17,7 +17,7 @@
   const RTL = () => document.documentElement.dir !== "ltr";
   function base(t) {
     return {
-      responsive: true, maintainAspectRatio: false, animation: { duration: 500 }, layout: { padding: { left: 8, right: 8, top: 4 } },
+      responsive: true, maintainAspectRatio: false, animation: { duration: 500 }, layout: { padding: { left: 18, right: 18, top: 4 } },
       locale: CW.config.locale,
       interaction: { mode: "index", intersect: false },
       plugins: {

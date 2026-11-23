@@ -90,7 +90,7 @@
     app.className = "app";
     app.innerHTML = `
       <aside class="sidebar" id="sidebar" aria-label="القائمة الرئيسية">
-        <a class="brand" href="index.html"><span class="brand-mark">CW</span><span><span class="brand-name">Connect <b>Webia</b></span><br><span class="brand-sub">نظام إدارة التشغيل</span></span></a>
+        <a class="brand" href="index.html" aria-label="Connect Webia — فهرس الشاشات"><img src="assets/brand/logo-slogan-light.svg" alt="Connect Webia — Connect to Succeed" width="200" height="40"><span class="brand-sub">نظام إدارة التشغيل</span></a>
         <nav>${nav}</nav>
         <div class="sidebar-foot">${CW.ui.avatar(user)}<div class="who"><b>${CW.ui.esc(user.name)}</b><span>${CW.ui.esc(user.title)}</span></div>
           <button class="icon-btn" style="margin-inline-start:auto;background:transparent;border-color:#ffffff22;color:inherit" id="logoutBtn" title="تسجيل الخروج" aria-label="تسجيل الخروج">${icon("logout")}</button></div>
