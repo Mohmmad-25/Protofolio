@@ -9,7 +9,7 @@
        DELETE {apiBase}/{resource}/{id}     → remove
    ========================================================= */
 (function () {
-  const STORE_KEY = "cw-ops-store-v1";
+  const STORE_KEY = "cw-ops-store-v2"; // غيّر الرقم عند تعديل البيانات التجريبية
   let store;
 
   function load() {
@@ -81,7 +81,7 @@
     async overview() {
       if (CW.config.apiBase) return http("GET", "/stats/overview");
       const s = load();
-      return { weekly: s.weekly, flow: s.flow };
+      return { weekly: s.weekly, flow: s.flow, flows: s.flows || {} };
     },
     resetDemo() { try { localStorage.removeItem(STORE_KEY); } catch (e) {} store = null; }
   };

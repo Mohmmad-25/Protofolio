@@ -58,11 +58,20 @@
   /* ---------- 17 · Departments & services ---------- */
   CW.pages["services"] = async function () {
     const r = await refs();
-    $("#depts").innerHTML = r.departments.map(d => {
+    const price = (s) => s.price == null ? '<span class="badge info">يُسعَّر حسب النطاق</span>' : `<span class="num cell-main">${money(s.price)}</span>`;
+    const row = (s) => `<div class="row between wrap"><div style="min-width:0;flex:1"><div class="cell-main">${esc(s.name)}</div><div class="cell-sub">${s.steps} مراحل · ${esc(s.unit)}${s.deliverables ? " · المخرجات: " + esc(s.deliverables) : ""}</div></div><div class="row">${price(s)}${s.active ? "" : '<span class="badge muted">موقوفة</span>'}<a class="btn btn-sm btn-ghost" href="service-flow.html?id=${s.id}">المسار</a></div></div>`;
+    // الأقسام الجديدة (ذات المسارات) أولاً وبعرض كامل
+    const depts = r.departments.slice().sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+    $("#depts").innerHTML = depts.map(d => {
       const sv = r.services.filter(s => s.dept === d.id);
       const team = r.employees.filter(e => e.dept === d.id);
-      return `<div class="card"><div class="card-head"><div><h3>${esc(d.name)}</h3><div class="sub">${sv.length} خدمات · ${team.length} موظفين</div></div><div class="avatars">${team.map(e => CW.ui.avatar(e)).join("")}</div></div>
-        <div class="card-body stack">${sv.map(s => `<div class="row between"><div><div class="cell-main">${esc(s.name)}</div><div class="cell-sub">${s.steps} مراحل · ${s.unit}</div></div><div class="row"><span class="num cell-main">${money(s.price)}</span>${s.active ? "" : '<span class="badge muted">موقوفة</span>'}<a class="btn btn-sm btn-ghost" href="service-flow.html?id=${s.id}">المسار</a></div></div>`).join("")}</div></div>`;
+      const head = `<div class="card-head"><div><div class="row"><h3>${esc(d.name)}</h3>${d.isNew ? '<span class="badge accent">خدمة جديدة</span>' : ""}</div><div class="sub">${sv.length} خدمات · ${team.length ? team.length + " موظفين" : "مدير الخدمة لم يُعيَّن بعد"}</div></div><div class="avatars">${team.map(e => CW.ui.avatar(e)).join("")}</div></div>`;
+      if (!d.tracks) return `<div class="card">${head}<div class="card-body stack">${sv.map(row).join("")}</div></div>`;
+      return `<div class="card span-2">${head}<div class="card-body stack"><p class="muted" style="max-width:80ch">${esc(d.summary)}</p>
+        <div class="grid grid-2">${d.tracks.map(t => `<div class="stack" style="padding:var(--s-4);border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface-2)">
+          <h4 style="font-size:var(--fs-md)">${esc(t.name)}</h4>
+          <dl class="meta-list" style="grid-template-columns:minmax(0,1fr)"><div><dt>لمن</dt><dd>${esc(t.forWho)}</dd></div><div><dt>نقطة البداية</dt><dd>${esc(t.start)}</dd></div><div><dt>طريقة الشراء</dt><dd>${esc(t.buy)}</dd></div></dl>
+          <div class="divider"></div>${sv.filter(s => s.track === t.id).map(row).join("")}</div>`).join("")}</div></div></div>`;
     }).join("");
   };
 
@@ -71,19 +80,27 @@
     const r = await refs();
     const s = r.S[qs("id") || "s4"];
     const ov = await CW.api.overview();
-    const steps = ov.flow.slice();
+    const steps = structuredClone((ov.flows || {})[s.id] || ov.flow);
     $("#sName").textContent = s.name; $("#sDept").textContent = (r.D[s.dept] || {}).name;
     const draw = () => {
       $("#flow").innerHTML = steps.map((st, i) => `<div class="flow-step"><span class="n">${i + 1}</span>
-        <div><input class="input" value="${esc(st.name)}" aria-label="اسم المرحلة ${i + 1}" data-i="${i}" data-k="name"><div class="row wrap" style="margin-top:8px">
-        <select class="select" style="max-width:220px;height:36px" data-i="${i}" data-k="owner" aria-label="المسؤول">${CW.ui.options(r.employees, st.owner)}</select>
-        <label class="row hint">المدة <input class="input num" type="number" min="1" style="width:80px;height:36px" value="${st.days}" data-i="${i}" data-k="days"> يوم</label></div></div>
+        <div><div class="row"><input class="input" value="${esc(st.name)}" aria-label="اسم المرحلة ${i + 1}" data-i="${i}" data-k="name">${st.gate ? '<span class="badge warn" title="لا ننتقل للمرحلة التالية قبل اعتماد العميل">بوابة قرار</span>' : ""}</div>
+        ${st.out ? `<div class="hint" style="margin-top:6px">المخرج: ${esc(st.out)}</div>` : ""}
+        <div class="row wrap" style="margin-top:8px">
+        <select class="select" style="max-width:220px;height:36px" data-i="${i}" data-k="owner" aria-label="المسؤول"><option value="">المسؤول: لم يُعيَّن</option>${CW.ui.options(r.employees, st.owner)}</select>
+        <label class="row hint">المدة <input class="input num" type="number" min="1" style="width:80px;height:36px" value="${st.days ?? ""}" placeholder="—" data-i="${i}" data-k="days"> يوم</label>
+        <label class="check hint"><input type="checkbox" data-i="${i}" data-k="gate" ${st.gate ? "checked" : ""}> يحتاج اعتماد العميل</label></div></div>
         <button class="btn btn-sm btn-ghost" data-del="${i}" aria-label="حذف المرحلة">حذف</button></div>`).join("");
-      $("#totalDays").textContent = CW.calc.sum(steps, "days") + " يوم عمل";
-      $$("[data-k]").forEach(f => f.addEventListener("change", () => { steps[f.dataset.i][f.dataset.k] = f.dataset.k === "days" ? Number(f.value) : f.value; draw(); }));
+      const undefinedDays = steps.filter(x => !x.days).length;
+      $("#totalDays").textContent = undefinedDays === steps.length ? "تُحدَّد لكل عميل" : CW.calc.sum(steps, "days") + " يوم عمل" + (undefinedDays ? ` (+ ${undefinedDays} مراحل بلا مدة)` : "");
+      $$("[data-k]").forEach(f => f.addEventListener("change", () => {
+        const k = f.dataset.k;
+        steps[f.dataset.i][k] = k === "days" ? (Number(f.value) || null) : k === "gate" ? f.checked : (f.value || null);
+        draw();
+      }));
       $$("[data-del]").forEach(b => b.addEventListener("click", () => { steps.splice(Number(b.dataset.del), 1); draw(); }));
     };
-    $("#addStep").addEventListener("click", () => { steps.push({ name: "مرحلة جديدة", owner: "e2", days: 1 }); draw(); });
+    $("#addStep").addEventListener("click", () => { steps.push({ name: "مرحلة جديدة", owner: null, days: null }); draw(); });
     $("#saveFlow").addEventListener("click", () => CW.ui.toast("تم حفظ مسار الخدمة"));
     draw();
   };

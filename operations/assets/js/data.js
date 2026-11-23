@@ -18,7 +18,14 @@ CW.seed = (function () {
     { id: "d1", name: "التسويق الرقمي", lead: "e3", color: "series-1" },
     { id: "d2", name: "تطوير المواقع", lead: "e4", color: "series-2" },
     { id: "d3", name: "الهوية البصرية", lead: "e5", color: "series-3" },
-    { id: "d4", name: "تمكين المبيعات", lead: "e2", color: "series-2" }
+    { id: "d4", name: "تمكين المبيعات", lead: "e2", color: "series-2" },
+    // خدمة جديدة — المصدر: وثيقة «حلول الأعمال وإدارة المشاريع». مدير الخدمة لم يُعيَّن بعد.
+    { id: "d5", name: "حلول الأعمال وإدارة المشاريع", lead: null, color: "series-1", isNew: true,
+      summary: "ننقل احتياج العميل من مرحلة الفهم إلى مرحلة التسليم: نؤسس مشروعه الجديد ونطلقه، أو ننجز لشركته القائمة مهمة محددة أو مشروعاً أو دعماً مستمراً، ضمن نطاق ومخرجات متفق عليها كتابةً.",
+      tracks: [
+        { id: "track1", name: "المسار الأول: تأسيس وإطلاق المشاريع", forWho: "صاحب فكرة، أو مستثمر، أو شركة تريد إطلاق نشاط أو فرع أو علامة جديدة", start: "تأهيل الفكرة ثم دراسة جدوى مستقلة", buy: "دراسة، ثم تأسيس وإطلاق بعقد مرحلي" },
+        { id: "track2", name: "المسار الثاني: دعم وتطوير الشركات", forWho: "شركة قائمة تحتاج مهمة محددة، أو مشروعاً، أو دعماً مستمراً", start: "اجتماع لتحديد النطاق", buy: "مهمة محددة، أو مشروع، أو دعم مستمر" }
+      ] }
   ];
 
   const employees = [
@@ -120,8 +127,49 @@ CW.seed = (function () {
     { id: "s5", name: "متجر إلكتروني", dept: "d2", price: 4500, unit: "مشروع", steps: 8, active: true },
     { id: "s6", name: "هوية بصرية كاملة", dept: "d3", price: 1800, unit: "مشروع", steps: 6, active: true },
     { id: "s7", name: "تصميم محتوى سوشال", dept: "d3", price: 350, unit: "شهري", steps: 3, active: false },
-    { id: "s8", name: "عروض وأدوات مبيعات", dept: "d4", price: 900, unit: "مشروع", steps: 4, active: true }
+    { id: "s8", name: "عروض وأدوات مبيعات", dept: "d4", price: 900, unit: "مشروع", steps: 4, active: true },
+    // حلول الأعمال وإدارة المشاريع — price: null = يُسعَّر بعد تحديد النطاق (لا سعر معلن في الوثيقة)
+    { id: "s9", name: "تأسيس وإطلاق المشاريع", dept: "d5", track: "track1", price: null, unit: "عقد مرحلي", steps: 6, active: true,
+      deliverables: "دراسة جدوى، خطة عمل، مكونات المشروع المعتمدة، أدلة تشغيل، محضر قبول" },
+    { id: "s10", name: "دراسة الجدوى", dept: "d5", track: "track1", price: null, unit: "عقد مستقل", steps: 3, active: true,
+      deliverables: "تقرير، نموذج مالي، قائمة افتراضات، توصية: استمرار أو تعديل أو توقف" },
+    { id: "s11", name: "الشركة والوثائق", dept: "d5", track: "track2", price: null, unit: "مهمة / مشروع", steps: 6, active: true,
+      deliverables: "بروفايل، عروض تعريفية، ملفات قدرات وخبرات" },
+    { id: "s12", name: "العطاءات وتطوير الأعمال", dept: "d5", track: "track2", price: null, unit: "مهمة / مشروع", steps: 6, active: true,
+      deliverables: "مصفوفة متطلبات، ملف تقديم، خطة مواعيد (RFQ / RFP)" },
+    { id: "s13", name: "العقود والدعم التجاري", dept: "d5", track: "track2", price: null, unit: "مهمة / دعم مستمر", steps: 6, active: true,
+      deliverables: "سجل التزامات، تقرير ملاحظات، خطة متابعة" },
+    { id: "s14", name: "المشتريات وسلاسل الإمداد", dept: "d5", track: "track2", price: null, unit: "مهمة / دعم مستمر", steps: 6, active: true,
+      deliverables: "مقارنة عروض، توصية شراء، سجل موردين، متابعة توريد" },
+    { id: "s15", name: "العمليات والدعم التنفيذي", dept: "d5", track: "track2", price: null, unit: "مهمة / دعم مستمر", steps: 6, active: true,
+      deliverables: "إجراءات تشغيل (SOPs)، نماذج، تقارير أداء، سجل مهام" },
+    { id: "s16", name: "الموارد البشرية والتطوير التنظيمي", dept: "d5", track: "track2", price: null, unit: "مهمة / مشروع", steps: 6, active: true,
+      deliverables: "أوصاف وظيفية، هيكل تنظيمي، نماذج، قائمة مرشحين" }
   ];
+
+  /* مسارات خاصة لكل خدمة. أي خدمة غير مذكورة تأخذ المسار الافتراضي flow.
+     days: null = لم تحدد الوثيقة مدة، تُحدَّد لكل عميل. gate: true = لا ننتقل قبل اعتماد العميل. */
+  const T1 = [
+    { name: "تأهيل الفكرة", owner: null, days: null, out: "ملخص احتياج، وعرض لنطاق الدراسة وأتعابها" },
+    { name: "دراسة الجدوى (عقد مستقل)", owner: null, days: null, gate: true, out: "تقرير ونموذج مالي وقائمة افتراضات وتوصية" },
+    { name: "خطة العمل", owner: null, days: null, gate: true, out: "خطة تنفيذ بجدول ومسؤوليات ومعايير قبول" },
+    { name: "التأسيس والتجهيز", owner: null, days: null, gate: true, out: "مكونات المشروع المعتمدة وملفاتها" },
+    { name: "إعداد التشغيل", owner: null, days: null, out: "أدوات وأدلة تشغيل ومسؤوليات واضحة" },
+    { name: "الإطلاق والتسليم", owner: null, days: null, out: "محضر قبول، وقائمة جاهزية، وخطة دعم انتقالية" }
+  ];
+  const T2 = [
+    { name: "تحديد الاحتياج", owner: null, days: null, out: "المهام المطلوبة وحجم العمل والنتائج المتوقعة" },
+    { name: "تحديد النطاق", owner: null, days: null, gate: true, out: "نطاق مكتوب: الخدمات والمسؤوليات والمخرجات ومستوى الخدمة" },
+    { name: "تحديد الموارد", owner: null, days: null, out: "الخبرات والأدوات من الفريق أو الشركاء" },
+    { name: "التنفيذ والإدارة", owner: null, days: null, out: "الخدمات المتفق عليها وفق العقد" },
+    { name: "متابعة الأداء والجودة", owner: null, days: null, out: "قياس التنفيذ ومراجعة المخرجات ومعالجة الملاحظات" },
+    { name: "مراجعة الاحتياج", owner: null, days: null, gate: true, out: "تعديل النطاق أو الموارد بالاتفاق مع العميل" }
+  ];
+  const flows = {
+    s9: T1,
+    s10: [T1[0], T1[1], { name: "عرض النتائج وقرار العميل", owner: null, days: null, gate: true, out: "قرار مكتوب: استمرار أو تعديل أو توقف" }],
+    s11: T2, s12: T2, s13: T2, s14: T2, s15: T2, s16: T2
+  };
 
   const flow = [
     { name: "استلام الطلب وتوثيق المتطلبات", owner: "e2", days: 1 },
@@ -180,5 +228,5 @@ CW.seed = (function () {
     { user: "e4", at: "2026-11-23 09:29", ip: "92.253.x.x", device: "Linux · Firefox", ok: true }
   ];
 
-  return { departments, employees, clients, projects, tasks, events, services, flow, documents, contracts, attendance, weekly, loginLog };
+  return { departments, employees, clients, projects, tasks, events, services, flow, flows, documents, contracts, attendance, weekly, loginLog };
 })();
