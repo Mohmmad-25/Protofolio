@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>الملخص الأسبوعي · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="weekly" data-crumb="نظرة عامة|الملخص الأسبوعي">
+<main class="content">
+  <div class="page-head"><div><h1>الملخص الأسبوعي · <span id="weekTitle"></span></h1><p>ما أُنجز هذا الأسبوع، وما يحتاج متابعة قبل الأسبوع القادم.</p></div><div class="actions"><span class="sample-note">بيانات تجريبية — تُستبدل عند ربط الـ API</span></div></div>
+  <section class="card hero-card"><div class="card-body"><div class="grid grid-4">
+    <div><div class="muted">مهام منجزة</div><div class="kpi-value"><span id="sumDone"></span><small style="color:#C9CBE0"> / <span id="sumTotal"></span></small></div></div>
+    <div><div class="muted">نسبة الإنجاز</div><div class="kpi-value" id="sumRate"></div></div>
+    <div><div class="muted">متأخرة</div><div class="kpi-value" id="sumLate" style="color:var(--brand-orange-400)"></div></div>
+    <div><div class="muted">الأسبوع القادم</div><div class="kpi-value" style="font-size:var(--fs-xl)"><a href="tasks.html" style="text-decoration:underline">عرض المهام ←</a></div></div>
+  </div></div></section>
+  <section class="grid grid-2">
+    <div class="card" id="cardDays"><div class="card-head"><div><h2>المهام المنجزة حسب اليوم</h2><div class="sub">حسب تاريخ الاستحقاق</div></div><div class="view-toggle" data-table-toggle><button type="button" data-view="chart" aria-pressed="true">رسم</button><button type="button" data-view="table" aria-pressed="false">جدول</button></div></div><div class="card-body"><div class="chart-box sm" id="chDays" role="img" aria-label="أعمدة للمهام المنجزة لكل يوم"></div></div></div>
+    <div class="card" id="cardProj"><div class="card-head"><div><h2>نسبة الإنجاز حسب المشروع</h2><div class="sub">مهام هذا الأسبوع فقط</div></div><div class="view-toggle" data-table-toggle><button type="button" data-view="chart" aria-pressed="true">رسم</button><button type="button" data-view="table" aria-pressed="false">جدول</button></div></div><div class="card-body"><div class="chart-box sm" id="chProj" role="img" aria-label="أعمدة أفقية لنسبة إنجاز كل مشروع"></div></div></div>
+  </section>
+  <section class="grid grid-2">
+    <div class="card"><div class="card-head"><h2>أبرز ما أُنجز</h2></div><div id="highlights"></div></div>
+    <div class="card"><div class="card-head"><h2>بنود تحتاج متابعة</h2></div><div id="risks"></div></div>
+  </section>
+</main>
+<script src="assets/vendor/chart-4.4.1.umd.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/dashboards.js"></script>
+</body>
+</html>

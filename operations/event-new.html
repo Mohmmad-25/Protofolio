@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>موعد جديد · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="event-new" data-crumb="التقويم|موعد جديد" data-nav="calendar">
+<main class="content">
+  <div class="page-head"><div><h1>موعد جديد</h1><p>يظهر الموعد في تقويم الفريق وفي لوحة مدير التشغيل.</p></div><div class="actions"><a class="btn btn-ghost" href="calendar.html">إلغاء</a></div></div>
+  <form class="card" id="eventForm" data-resource="events" data-redirect="calendar.html" novalidate>
+    <div class="card-body form-grid">
+      <div class="field full"><label for="title">عنوان الموعد <span class="req">*</span></label><input class="input" id="title" name="title" required placeholder="مثال: عرض التصاميم الأولية"></div>
+      <div class="field"><label for="type">النوع</label><select class="select" id="type" name="type"><option value="meeting">اجتماع مع عميل</option><option value="delivery">تسليم</option><option value="internal">داخلي</option></select></div>
+      <div class="field"><label for="client">العميل</label><select class="select" id="client" name="client" data-source="clients"><option value="">بدون عميل</option></select></div>
+      <div class="field"><label for="date">التاريخ <span class="req">*</span></label><input class="input" id="date" name="date" type="date" required></div>
+      <div class="field"><label for="time">الوقت <span class="req">*</span></label><input class="input" id="time" name="time" type="time" value="10:00" required></div>
+      <div class="field"><label for="where">المكان</label><select class="select" id="where" name="where"><option>مكتب Connect Webia — عمّان</option><option>Google Meet</option><option>Zoom</option><option>مقر العميل</option></select></div>
+      <div class="field"><label for="remind">تذكير</label><select class="select" id="remind" name="remind"><option>قبل 30 دقيقة</option><option>قبل ساعة</option><option>قبل يوم</option></select></div>
+      <div class="field full"><label for="notes">ملاحظات</label><textarea class="textarea" id="notes" name="notes" placeholder="جدول الأعمال، الحضور، ما يجب تحضيره…"></textarea></div>
+    </div>
+    <div class="form-foot"><a class="btn btn-secondary" href="calendar.html">إلغاء</a><button class="btn btn-primary" type="submit">حفظ الموعد</button></div>
+  </form>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/work.js"></script>
+</body>
+</html>

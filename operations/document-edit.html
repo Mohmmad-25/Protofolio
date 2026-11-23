@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تحرير مستند · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="document-edit" data-crumb="المستندات|تحرير مستند" data-nav="documents">
+<main class="content">
+  <div class="page-head"><div style="flex:1;min-width:0"><label class="hint" for="docName">اسم المستند</label><input class="input" id="docName" value="مستند جديد" style="font-size:var(--fs-xl);font-weight:700;height:52px"></div><div class="actions"><a class="btn btn-secondary" href="documents.html">إغلاق</a><button class="btn btn-primary" id="saveDoc" type="button">حفظ</button></div></div>
+  <section class="grid grid-main">
+    <div class="card"><div class="editor-bar" role="toolbar" aria-label="تنسيق"><button type="button" data-cmd="bold" aria-label="عريض">B</button><button type="button" data-cmd="italic" aria-label="مائل"><i>I</i></button><button type="button" data-cmd="underline" aria-label="تسطير"><u>U</u></button><button type="button" data-cmd="formatBlock" data-val="h2">عنوان</button><button type="button" data-cmd="insertUnorderedList">• قائمة</button><button type="button" data-cmd="insertOrderedList">1. قائمة</button></div>
+      <div class="doc-editor" id="editor" contenteditable="true" aria-label="محتوى المستند"><h2>اتفاقية تقديم خدمات تسويق رقمي</h2><p>أُبرمت هذه الاتفاقية بتاريخ {{التاريخ}} بين شركة Connect Webia (الطرف الأول) و{{اسم_العميل}} (الطرف الثاني).</p><p><b>نطاق الخدمات:</b> {{الخدمة}} وفق المسار المعتمد لدى الطرف الأول.</p><ul><li>مدة العقد: {{مدة_العقد}}.</li><li>القيمة الإجمالية: {{قيمة_العقد}} دينار أردني.</li><li>جولات التعديل: جولتان لكل مخرج.</li></ul></div></div>
+    <div class="card" style="align-self:start"><div class="card-head"><h2>حقول تلقائية</h2></div><div class="card-body stack"><p class="hint">تُستبدل تلقائياً ببيانات العميل والعقد عند التصدير.</p>
+      <div class="row wrap"><button type="button" class="chip-filter" data-var="اسم_العميل">اسم العميل</button><button type="button" class="chip-filter" data-var="التاريخ">التاريخ</button><button type="button" class="chip-filter" data-var="الخدمة">الخدمة</button><button type="button" class="chip-filter" data-var="قيمة_العقد">قيمة العقد</button><button type="button" class="chip-filter" data-var="مدة_العقد">مدة العقد</button></div></div></div>
+  </section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/admin.js"></script>
+</body>
+</html>

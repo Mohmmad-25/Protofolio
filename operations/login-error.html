@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تعذّر تسجيل الدخول · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-error="1">
+<div class="auth"><div class="auth-form">
+  <div class="auth-logo">Connect <b>Webia</b><small>CONNECT TO SUCCEED</small></div>
+  <div><h1 style="font-size:var(--fs-2xl)">تسجيل الدخول</h1><p class="muted">ادخل إلى مشاريعك ومهام فريقك وتقارير الأداء.</p></div>
+  <form id="loginForm" novalidate>
+    <div class="alert bad" id="loginError"  role="alert"><b>تعذّر تسجيل الدخول.</b> البريد الإلكتروني أو كلمة المرور غير صحيحة. تأكد منهما وحاول مرة أخرى، أو اطلب إعادة تعيين كلمة المرور من مدير النظام.</div>
+    <div class="field"><label for="email">البريد الإلكتروني للعمل</label><input class="input invalid" id="email" name="email" type="email" autocomplete="username" placeholder="name@connectwebia.com" required dir="ltr" value="dana@connectwebia"></div>
+    <div class="field"><label for="password">كلمة المرور</label><div class="row"><input class="input invalid" id="password" name="password" type="password" autocomplete="current-password" required dir="ltr"><button type="button" class="btn btn-ghost btn-sm" id="pwToggle" data-show="إظهار" data-hide="إخفاء">إظهار</button></div></div>
+    <div class="row between"><label class="check"><input type="checkbox" id="remember" checked> تذكرني على هذا الجهاز</label><a href="#" class="muted">نسيت كلمة المرور؟</a></div>
+    <button class="btn btn-primary btn-block" type="submit">دخول</button>
+    <p class="hint">دخول تجريبي: <button type="button" class="btn btn-ghost btn-sm" data-demo="ceo@connectwebia.com">الرئيس التنفيذي</button><button type="button" class="btn btn-ghost btn-sm" data-demo="ops@connectwebia.com">مدير التشغيل</button><button type="button" class="btn btn-ghost btn-sm" data-demo="sara@connectwebia.com">موظفة</button> · <a href="login-en.html" style="color:var(--accent-ink)">English</a></p>
+  </form>
+</div><div class="auth-art"><h2>كل مشروع، من التكليف إلى التسليم.</h2><p>المشاريع والمهام والمواعيد وأداء الفريق في نظام واحد، بصلاحيات واضحة لكل دور.</p>
+  <div class="auth-stats"><div><b>9</b><span>مشاريع نشطة</span></div><div><b>74%</b><span>إنجاز هذا الأسبوع</span></div><div><b>6</b><span>عملاء</span></div></div></div></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/pages/auth.js"></script>
+</body>
+</html>

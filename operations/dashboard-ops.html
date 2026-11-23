@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>لوحة مدير التشغيل · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="dash-ops" data-crumb="نظرة عامة|لوحة مدير التشغيل">
+<main class="content">
+  <div class="page-head"><div><h1>لوحة التشغيل</h1><p>متابعة يومية للمهام والمراجعات والمواعيد والفريق.</p></div><div class="actions"><span class="sample-note">بيانات تجريبية — تُستبدل عند ربط الـ API</span><a class="btn btn-secondary" href="board.html">لوحة الحالات</a><a class="btn btn-primary" href="task-new.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>مهمة جديدة</a></div></div>
+  <section class="grid grid-4"><div id="k1"></div><div id="k2"></div><div id="k3"></div><div id="k4"></div></section>
+  <section class="grid grid-main">
+    <div class="card" id="cardDept"><div class="card-head"><div><h2>مهام الأسبوع حسب القسم</h2><div class="sub">منجزة · مفتوحة · متأخرة</div></div><div class="row"><div class="legend" id="lgDept"></div><div class="view-toggle" data-table-toggle><button type="button" data-view="chart" aria-pressed="true">رسم</button><button type="button" data-view="table" aria-pressed="false">جدول</button></div></div></div>
+      <div class="card-body"><div class="chart-box" id="chDept" role="img" aria-label="أعمدة مكدسة لمهام كل قسم"></div></div></div>
+    <div class="card"><div class="card-head"><h2>المواعيد القادمة</h2><a class="btn btn-sm btn-ghost" href="calendar.html">التقويم</a></div><div class="card-body" id="upcoming"></div></div>
+  </section>
+  <section class="grid grid-2">
+    <div class="card"><div class="card-head"><h2>بانتظار مراجعتك</h2><a class="btn btn-sm btn-ghost" href="tasks.html?filter=review">الكل</a></div><div id="reviewList"></div></div>
+    <div class="card"><div class="card-head"><h2>مهام متأخرة</h2><span class="sub"><span id="dueSoon"></span> مهمة أخرى مستحقة قريباً</span></div><div id="overdueList"></div></div>
+  </section>
+  <section class="card"><div class="card-head"><h2>الفريق اليوم</h2><a class="btn btn-sm btn-ghost" href="attendance.html">سجل الدوام</a></div><div class="card-body grid grid-2" id="teamToday"></div></section>
+</main>
+<script src="assets/vendor/chart-4.4.1.umd.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/dashboards.js"></script>
+</body>
+</html>

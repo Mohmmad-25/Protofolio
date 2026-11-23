@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تفاصيل المهمة · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="task" data-crumb="المهام|تفاصيل المهمة" data-nav="tasks">
+<main class="content">
+  <div class="page-head"><div><div class="row"><h1 id="tTitle">…</h1><span id="tStatus"></span></div><p id="tProject"></p></div><div class="actions"><a class="btn btn-secondary" href="tasks.html">كل المهام</a></div></div>
+  <div class="alert bad" id="overdueAlert" hidden role="alert">هذه المهمة تجاوزت موعد تسليمها. حدّد موعداً جديداً أو انقلها للمراجعة.</div>
+  <section class="grid grid-main">
+    <div class="stack">
+      <div class="card"><div class="card-head"><h2>التفاصيل</h2></div><div class="card-body"><dl class="meta-list" id="tMeta"></dl></div></div>
+      <div class="card"><div class="card-head"><h2>قائمة التحقق</h2></div><div class="card-body"><ul class="checklist">
+        <li class="done"><input type="checkbox" id="ck1" checked aria-label="منجز"><span>استلام المتطلبات من مدير المشروع</span></li>
+        <li><input type="checkbox" id="ck2" aria-label="منجز"><span>تنفيذ المسودة الأولى</span></li>
+        <li><input type="checkbox" id="ck3" aria-label="منجز"><span>مراجعة داخلية</span></li>
+        <li><input type="checkbox" id="ck4" aria-label="منجز"><span>إرسال للعميل</span></li></ul></div></div>
+      <div class="card"><div class="card-head"><h2>التعليقات</h2></div><div class="card-body stack">
+        <form id="commentForm" class="row"><input class="input" id="comment" name="comment" placeholder="اكتب تحديثاً للفريق…" aria-label="تعليق"><button class="btn btn-primary" type="submit">إرسال</button></form>
+        <ul class="timeline" id="comments"><li><div><div class="cell-main">ليث حدّاد</div><div>العميل طلب تعديل الألوان قبل الإرسال النهائي.</div><div class="t-time">أمس 4:20 م</div></div></li></ul></div></div>
+    </div>
+    <div class="card" style="align-self:start"><div class="card-head"><h2>تحديث الحالة</h2></div><div class="card-body stack">
+      <div class="field"><label for="statusSel">الحالة</label><select class="select" id="statusSel"><option value="todo">جديدة</option><option value="progress">قيد العمل</option><option value="review">بانتظار المراجعة</option><option value="done">منجزة</option></select></div>
+      <div class="field"><label for="newDue">موعد جديد (اختياري)</label><input class="input" type="date" id="newDue"></div>
+      <button class="btn btn-primary btn-block" id="saveStatus" type="button">حفظ التحديث</button></div></div>
+  </section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/work.js"></script>
+</body>
+</html>

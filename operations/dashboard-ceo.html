@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>لوحة الرئيس التنفيذي · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="dash-ceo" data-crumb="نظرة عامة|لوحة الرئيس التنفيذي">
+<main class="content">
+  <div class="page-head"><div><h1 id="hello">صباح الخير</h1><p id="today"></p></div><div class="actions"><span class="sample-note">بيانات تجريبية — تُستبدل عند ربط الـ API</span><a class="btn btn-secondary" href="weekly-summary.html">الملخص الأسبوعي</a><a class="btn btn-primary" href="project-new.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>مشروع جديد</a></div></div>
+  <section class="grid grid-4" aria-label="المؤشرات الرئيسية"><div id="k1"></div><div id="k2"></div><div id="k3"></div><div id="k4"></div></section>
+  <section class="grid grid-main">
+    <div class="card" id="cardWeekly"><div class="card-head"><div><h2>المخطط مقابل المنجز</h2><div class="sub">عدد المهام أسبوعياً · آخر 8 أسابيع</div></div><div class="row"><div class="legend" id="lgWeekly"></div><div class="view-toggle" data-table-toggle><button type="button" data-view="chart" aria-pressed="true">رسم</button><button type="button" data-view="table" aria-pressed="false">جدول</button></div></div></div>
+      <div class="card-body"><div class="chart-box" id="chWeekly" role="img" aria-label="رسم خطي للمهام المخطط لها والمنجزة خلال 8 أسابيع"></div></div></div>
+    <div class="card"><div class="card-head"><div><h2>معدل الإنجاز</h2><div class="sub">مهام الأسبوع الحالي</div></div></div>
+      <div class="card-body stack"><div class="chart-box sm" style="height:150px"><div id="chGauge" style="position:absolute;inset:0"></div><div class="donut-center" style="place-items:end center;padding-bottom:6px"><div><b id="gaugeVal">—</b><span>من مهام الأسبوع</span></div></div></div>
+      <div class="stat-list" id="statusList"></div></div></div>
+  </section>
+  <section class="grid grid-2">
+    <div class="card" id="cardLoad"><div class="card-head"><div><h2>عبء العمل حسب الموظف</h2><div class="sub">مهام هذا الأسبوع</div></div><div class="row"><div class="legend" id="lgLoad"></div><div class="view-toggle" data-table-toggle><button type="button" data-view="chart" aria-pressed="true">رسم</button><button type="button" data-view="table" aria-pressed="false">جدول</button></div></div></div>
+      <div class="card-body"><div class="chart-box" id="chLoad" role="img" aria-label="أعمدة أفقية لمهام كل موظف حسب الحالة"></div></div></div>
+    <div class="card" id="cardRevenue"><div class="card-head"><div><h2>قيمة العقود حسب القسم</h2><div class="sub">العقود السارية بالدينار الأردني</div></div><div class="view-toggle" data-table-toggle><button type="button" data-view="chart" aria-pressed="true">رسم</button><button type="button" data-view="table" aria-pressed="false">جدول</button></div></div>
+      <div class="card-body"><div class="chart-box" id="chRevenue" role="img" aria-label="أعمدة لقيمة العقود لكل قسم"></div></div></div>
+  </section>
+  <section class="card"><div class="card-head"><div><h2>مشاريع تحتاج انتباهك</h2><div class="sub">الأقرب تسليماً والمتأخرة أولاً</div></div><div class="row"><span class="badge bad" id="lateCount"></span><a class="btn btn-sm btn-secondary" href="projects.html">كل المشاريع</a></div></div><div id="watchList"></div></section>
+</main>
+<script src="assets/vendor/chart-4.4.1.umd.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/dashboards.js"></script>
+</body>
+</html>

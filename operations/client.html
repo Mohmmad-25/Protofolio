@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ملف العميل · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="client" data-crumb="العملاء|ملف العميل" data-nav="clients">
+<main class="content">
+  <div class="page-head"><div class="row"><span id="cAvatar"></span><div><div class="row"><h1 id="cName">…</h1><span id="cStatus"></span></div><p class="muted" id="cSub"></p></div></div><div class="actions"><a class="btn btn-secondary" href="clients.html">كل العملاء</a><a class="btn btn-primary" href="project-new.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>مشروع لهذا العميل</a></div></div>
+  <section class="card"><div class="card-body"><dl class="meta-list" id="cMeta" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))"></dl></div></section>
+  <section class="card"><div class="tabs" id="cTabs" role="tablist"><button class="tab" role="tab" aria-selected="true" aria-controls="tp">المشاريع</button><button class="tab" role="tab" aria-selected="false" aria-controls="tk">العقود</button><button class="tab" role="tab" aria-selected="false" aria-controls="tn">ملاحظات</button></div>
+    <div id="tp" role="tabpanel"><div id="cProjects"></div></div>
+    <div id="tk" role="tabpanel" hidden><div id="cContracts"></div></div>
+    <div id="tn" role="tabpanel" hidden><div class="card-body"><textarea class="textarea" id="clientNotes" aria-label="ملاحظات" placeholder="تفضيلات العميل، أوقات التواصل، ملاحظات الفوترة…"></textarea></div></div>
+  </section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/admin.js"></script>
+</body>
+</html>

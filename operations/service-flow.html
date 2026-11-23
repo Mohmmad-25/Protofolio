@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>إعداد المسار · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="service-flow" data-crumb="الأقسام والخدمات|إعداد المسار" data-nav="services">
+<main class="content">
+  <div class="page-head"><div><h1>مسار الخدمة: <span id="sName"></span></h1><p>قسم <span id="sDept"></span> · المراحل التي يمر بها كل مشروع من هذه الخدمة. المدة الإجمالية: <b id="totalDays" class="num"></b></p></div><div class="actions"><a class="btn btn-secondary" href="services.html">رجوع</a><button class="btn btn-primary" id="saveFlow" type="button">حفظ المسار</button></div></div>
+  <section class="card"><div class="card-body stack"><div class="flow" id="flow"></div><button class="btn btn-secondary" id="addStep" type="button" style="align-self:flex-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>إضافة مرحلة</button></div></section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/admin.js"></script>
+</body>
+</html>

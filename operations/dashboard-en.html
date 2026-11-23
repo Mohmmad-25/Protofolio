@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Operations dashboard · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="dash-en" data-crumb="Overview|Operations dashboard" data-nav="dash-ceo">
+<main class="content">
+  <div class="page-head"><div><h1>Operations dashboard</h1><p>This week at a glance: workload, delivery and risk.</p></div><div class="actions"><span class="sample-note">Sample data</span><a class="btn btn-secondary" href="dashboard-ceo.html">العربية</a></div></div>
+  <section class="grid grid-4">
+    <div class="card kpi"><div class="kpi-top"><span>Tasks this week</span></div><div class="kpi-value" id="eTotal"></div><div class="kpi-foot"><span>Planned</span><div class="kpi-spark" id="sp1"></div></div></div>
+    <div class="card kpi"><div class="kpi-top"><span>Completed</span></div><div class="kpi-value" id="eDone"></div><div class="kpi-foot"><span>Done</span><div class="kpi-spark" id="sp2"></div></div></div>
+    <div class="card kpi is-alert"><div class="kpi-top"><span>Overdue</span></div><div class="kpi-value" id="eLate"></div><div class="kpi-foot"><a href="tasks.html?filter=overdue" style="color:var(--bad);font-weight:600">Review overdue →</a></div></div>
+    <div class="card kpi"><div class="kpi-top"><span>Completion rate</span></div><div class="kpi-value" id="eRate"></div><div class="kpi-foot"><span>Last 8 weeks</span><div class="kpi-spark" id="sp4"></div></div></div>
+  </section>
+  <section class="grid grid-2">
+    <div class="card" id="cardWeeklyEn"><div class="card-head"><div><h2>Planned vs completed</h2><div class="sub">Tasks per week</div></div><div class="row"><div class="legend"><span><i style="background:var(--series-1)"></i>Completed</span><span><i style="background:var(--series-2)"></i>Planned</span></div><div class="view-toggle" data-table-toggle><button type="button" data-view="chart" aria-pressed="true">Chart</button><button type="button" data-view="table" aria-pressed="false">Table</button></div></div></div><div class="card-body"><div class="chart-box" id="chWeeklyEn" role="img" aria-label="Line chart of planned and completed tasks"></div></div></div>
+    <div class="card" id="cardLoadEn"><div class="card-head"><div><h2>Workload by employee</h2><div class="sub">This week</div></div><div class="row"><div class="legend"><span><i style="background:var(--series-2)"></i>Completed</span><span><i style="background:var(--series-3)"></i>Open</span><span><i style="background:var(--series-1)"></i>Overdue</span></div><div class="view-toggle" data-table-toggle><button type="button" data-view="chart" aria-pressed="true">Chart</button><button type="button" data-view="table" aria-pressed="false">Table</button></div></div></div><div class="card-body"><div class="chart-box" id="chLoadEn" role="img" aria-label="Stacked bars of tasks per employee"></div></div></div>
+  </section>
+</main>
+<script src="assets/vendor/chart-4.4.1.umd.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/dashboards.js"></script>
+</body>
+</html>

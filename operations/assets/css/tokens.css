@@ -1,0 +1,94 @@
+/* =========================================================
+   Connect Webia — Operations · Design tokens
+   المصدر: Company profile (Connect Webia).pdf
+   - الكحلي  #212547 (خلفية الهوية)  - البرتقالي #F26A3A (لون الإجراء)
+   - الخط: Montserrat (مضمّن في ملف الهوية) + خط عربي مرافق
+   غيّر أي قيمة هنا فتتغير في كل الشاشات.
+   ========================================================= */
+:root {
+  /* Brand */
+  --brand-navy-950: #11142B;
+  --brand-navy-900: #161938;
+  --brand-navy-800: #1C2042;
+  --brand-navy-700: #212547;
+  --brand-navy-600: #2D3157;
+  --brand-navy-500: #43476B;
+  --brand-orange-600: #D9521F;
+  --brand-orange-500: #F26A3A;
+  --brand-orange-400: #F58A62;
+
+  /* Surfaces & ink (light) */
+  --bg: #F4F5FA;
+  --surface: #FFFFFF;
+  --surface-2: #F8F9FC;
+  --surface-sunken: #EEF0F6;
+  --border: #E3E5EE;
+  --border-strong: #CBCFDD;
+  --ink: #161938;
+  --ink-2: #4A4E6A;
+  --ink-3: #7C809A;
+  --accent: var(--brand-orange-500);
+  --accent-hover: var(--brand-orange-600);
+  --accent-soft: #FDEBE3;
+  --accent-ink: #B4431A;
+  --focus: #F26A3A66;
+
+  /* Sidebar (navy in both themes) */
+  --side-bg: var(--brand-navy-700);
+  --side-bg-2: var(--brand-navy-800);
+  --side-ink: #C9CBE0;
+  --side-ink-strong: #FFFFFF;
+  --side-active: #FFFFFF14;
+
+  /* Status (reserved: never used as a series color) */
+  --good: #13855C;      --good-soft: #E2F4EC;
+  --warn: #B7791F;      --warn-soft: #FBF0DC;
+  --bad: #C8372D;       --bad-soft: #FBE4E2;
+  --info: #3B4A9E;      --info-soft: #E6E9F7;
+
+  /* Chart series (validated: CVD + contrast) */
+  --series-1: #E8602C;
+  --series-2: #3B4A9E;
+  --series-3: #17998A;
+  --chart-grid: #E8EAF2;
+
+  /* Type */
+  --font-sans: "Montserrat", "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --font-num: "Montserrat", "IBM Plex Sans Arabic", sans-serif;
+  --fs-xs: .75rem; --fs-sm: .8125rem; --fs-md: .875rem; --fs-lg: 1rem;
+  --fs-xl: 1.25rem; --fs-2xl: 1.625rem; --fs-3xl: 2.125rem;
+
+  /* Space, radius, shadow */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px;
+  --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-pill: 999px;
+  --shadow-1: 0 1px 2px #1619380D, 0 1px 1px #16193808;
+  --shadow-2: 0 8px 24px #16193814;
+  --sidebar-w: 264px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1226; --surface: #181C36; --surface-2: #1D2140; --surface-sunken: #13162E;
+    --border: #2A2F52; --border-strong: #3B4170;
+    --ink: #EEF0FA; --ink-2: #B9BDD6; --ink-3: #868BAA;
+    --accent-soft: #F26A3A22; --accent-ink: #F58A62;
+    --side-bg: #11142B; --side-bg-2: #0C0F22;
+    --good: #3CC58E; --good-soft: #3CC58E1F; --warn: #E3A94B; --warn-soft: #E3A94B1F;
+    --bad: #EF6B62; --bad-soft: #EF6B621F; --info: #8F9AE6; --info-soft: #8F9AE61F;
+    --series-1: #E2632F; --series-2: #7480D8; --series-3: #16A08F; --chart-grid: #262B4A;
+    --shadow-1: 0 1px 2px #0006; --shadow-2: 0 8px 24px #0008;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1226; --surface: #181C36; --surface-2: #1D2140; --surface-sunken: #13162E;
+  --border: #2A2F52; --border-strong: #3B4170;
+  --ink: #EEF0FA; --ink-2: #B9BDD6; --ink-3: #868BAA;
+  --accent-soft: #F26A3A22; --accent-ink: #F58A62;
+  --side-bg: #11142B; --side-bg-2: #0C0F22;
+  --good: #3CC58E; --good-soft: #3CC58E1F; --warn: #E3A94B; --warn-soft: #E3A94B1F;
+  --bad: #EF6B62; --bad-soft: #EF6B621F; --info: #8F9AE6; --info-soft: #8F9AE61F;
+  --series-1: #E2632F; --series-2: #7480D8; --series-3: #16A08F; --chart-grid: #262B4A;
+  --shadow-1: 0 1px 2px #0006; --shadow-2: 0 8px 24px #0008;
+  color-scheme: dark;
+}

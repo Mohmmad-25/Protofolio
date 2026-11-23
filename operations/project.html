@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تفاصيل المشروع · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="project" data-crumb="المشاريع|تفاصيل المشروع" data-nav="projects">
+<main class="content">
+  <div class="page-head"><div><div class="row"><h1 id="pName">…</h1><span id="pStatus"></span></div><p id="pSub"></p></div><div class="actions"><a class="btn btn-secondary" href="projects.html">كل المشاريع</a><a class="btn btn-primary" id="addTask" href="task-new.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>مهمة جديدة</a></div></div>
+  <section class="grid grid-main">
+    <div class="card"><div class="tabs" id="pTabs" role="tablist"><button class="tab" role="tab" aria-selected="true" aria-controls="tabTasks">المهام</button><button class="tab" role="tab" aria-selected="false" aria-controls="tabInfo">معلومات المشروع</button></div>
+      <div id="tabTasks" role="tabpanel"><div id="pTasks"></div></div>
+      <div id="tabInfo" role="tabpanel" hidden><div class="card-body"><dl class="meta-list" id="meta"></dl></div></div></div>
+    <div class="stack">
+      <div class="card"><div class="card-head"><h2>التقدّم</h2><span class="sub" id="taskSummary"></span></div><div class="card-body"><div class="chart-box sm" style="height:140px"><div id="chProgress" style="position:absolute;inset:0"></div><div class="donut-center" style="place-items:end center"><div><b id="progVal"></b><span>من نطاق العمل</span></div></div></div></div></div>
+      <div class="card"><div class="card-head"><h2>فريق المشروع</h2></div><div class="card-body stack" id="team"></div></div>
+    </div>
+  </section>
+</main>
+<script src="assets/vendor/chart-4.4.1.umd.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/work.js"></script>
+</body>
+</html>

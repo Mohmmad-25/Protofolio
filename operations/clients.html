@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>العملاء · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="clients" data-crumb="العملاء والخدمات|العملاء">
+<main class="content">
+  <div class="page-head"><div><h1>العملاء</h1><p>ملف كل عميل يجمع مشاريعه وعقوده وجهة الاتصال.</p></div><div class="actions"><span class="sample-note">بيانات تجريبية — تُستبدل عند ربط الـ API</span><button class="btn btn-primary" type="button" onclick="CW.ui.toast('نموذج إضافة عميل: اربطه بـ CW.api.clients.create')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>عميل جديد</button></div></div>
+  <section class="card">
+  <div class="toolbar"><label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="q" type="search" placeholder="ابحث بالاسم أو القطاع" aria-label="بحث"></label><button type="button" class="chip-filter" data-filter="all" aria-pressed="true">الكل</button><button type="button" class="chip-filter" data-filter="active" aria-pressed="false">نشط</button><button type="button" class="chip-filter" data-filter="paused" aria-pressed="false">متوقف</button></div>
+  <div id="list"></div>
+</section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/admin.js"></script>
+</body>
+</html>

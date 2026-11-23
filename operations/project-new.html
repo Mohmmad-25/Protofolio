@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مشروع جديد · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="project-new" data-crumb="المشاريع|مشروع جديد">
+<main class="content">
+  <div class="page-head"><div><h1>مشروع جديد</h1><p>أنشئ المشروع ثم أضف مهامه من صفحة التفاصيل.</p></div><div class="actions"><a class="btn btn-ghost" href="projects.html">إلغاء</a></div></div>
+  <form class="card" id="projectForm" data-resource="projects" data-redirect="project.html?id=" novalidate>
+    <div class="card-body form-grid">
+      <div class="form-section">المعلومات الأساسية</div>
+      <div class="field full"><label for="name">اسم المشروع <span class="req">*</span></label><input class="input" id="name" name="name" required placeholder="مثال: حملة رمضان — مطاعم سنابل"></div>
+      <div class="field"><label for="client">العميل <span class="req">*</span></label><select class="select" id="client" name="client" data-source="clients" required><option value="">اختر العميل</option></select></div>
+      <div class="field"><label for="dept">القسم المنفّذ <span class="req">*</span></label><select class="select" id="dept" name="dept" data-source="departments" required><option value="">اختر القسم</option></select></div>
+      <div class="field"><label for="owner">مدير المشروع <span class="req">*</span></label><select class="select" id="owner" name="owner" data-source="employees" required><option value="">اختر الموظف</option></select></div>
+      <div class="field"><label for="budget">الميزانية (د.أ)</label><input class="input num" id="budget" name="budget" type="number" min="0" step="50" placeholder="0"></div>
+      <div class="form-section">الجدول الزمني</div>
+      <div class="field"><label for="start">تاريخ البدء <span class="req">*</span></label><input class="input" id="start" name="start" type="date" required></div>
+      <div class="field"><label for="due">تاريخ التسليم <span class="req">*</span></label><input class="input" id="due" name="due" type="date" required><span class="hint">يظهر المشروع كمتأخر تلقائياً بعد هذا التاريخ.</span></div>
+      <div class="field full"><label for="brief">وصف ونطاق العمل</label><textarea class="textarea" id="brief" name="brief" placeholder="المخرجات المطلوبة، عدد جولات التعديل، ملاحظات العميل…"></textarea></div>
+    </div>
+    <div class="form-foot"><a class="btn btn-secondary" href="projects.html">إلغاء</a><button class="btn btn-primary" type="submit">إنشاء المشروع</button></div>
+  </form>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/work.js"></script>
+</body>
+</html>

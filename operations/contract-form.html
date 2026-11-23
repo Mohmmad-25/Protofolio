@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>إضافة أو تعديل عقد · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="contract-form" data-crumb="العقود|إضافة أو تعديل" data-nav="contracts">
+<main class="content">
+  <div class="page-head"><div><h1><span id="formTitle">عقد جديد</span></h1><p>بعد الحفظ يظهر العقد في ملف العميل وفي لوحة الرئيس التنفيذي.</p></div><div class="actions"><a class="btn btn-ghost" href="contracts.html">إلغاء</a></div></div>
+  <form class="card" id="contractForm" data-resource="contracts" data-redirect="contracts.html" novalidate>
+    <div class="card-body form-grid">
+      <div class="field full"><label for="title">عنوان العقد <span class="req">*</span></label><input class="input" id="title" name="title" required placeholder="مثال: إدارة سوشال ميديا — 12 شهر"></div>
+      <div class="field"><label for="client">العميل <span class="req">*</span></label><select class="select" id="client" name="client" data-source="clients" required><option value="">اختر العميل</option></select></div>
+      <div class="field"><label for="service">الخدمة <span class="req">*</span></label><select class="select" id="service" name="service" data-source="services" required><option value="">اختر الخدمة</option></select></div>
+      <div class="field"><label for="value">القيمة الإجمالية (د.أ) <span class="req">*</span></label><input class="input num" id="value" name="value" type="number" min="0" step="50" required></div>
+      <div class="field"><label for="status">الحالة</label><select class="select" id="status" name="status"><option value="draft">مسودة</option><option value="active">سارٍ</option><option value="renewal">بانتظار التجديد</option><option value="ending">ينتهي قريباً</option></select></div>
+      <div class="field"><label for="start">تاريخ البدء <span class="req">*</span></label><input class="input" id="start" name="start" type="date" required></div>
+      <div class="field"><label for="end">تاريخ الانتهاء <span class="req">*</span></label><input class="input" id="end" name="end" type="date" required></div>
+      <div class="field full"><div class="alert info">القيمة الشهرية المحسوبة: <b id="monthly" class="num">—</b></div></div>
+      <div class="field full"><label for="kfile">نسخة العقد الموقّعة (PDF)</label><input class="input" id="kfile" name="kfile" type="file" accept="application/pdf" style="padding-top:9px"></div>
+    </div>
+    <div class="form-foot"><a class="btn btn-secondary" href="contracts.html">إلغاء</a><button class="btn btn-primary" type="submit">حفظ العقد</button></div>
+  </form>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>سجل الدخول والخروج · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="attendance" data-crumb="الإدارة|سجل الدخول والخروج">
+<main class="content">
+  <div class="page-head"><div><h1>سجل الدخول والخروج</h1><p>الدوام اليومي للفريق. التأخير يُحسب بعد 9:15 صباحاً.</p></div><div class="actions"><button class="btn btn-primary" id="checkBtn" type="button">تسجيل دخولي الآن</button></div></div>
+  <section class="grid grid-3">
+    <div class="card kpi"><div class="kpi-top"><span>حاضرون اليوم</span></div><div class="kpi-value" id="present"></div></div>
+    <div class="card kpi"><div class="kpi-top"><span>يعملون عن بُعد</span></div><div class="kpi-value" id="remote"></div></div>
+    <div class="card kpi"><div class="kpi-top"><span>تأخير اليوم</span></div><div class="kpi-value" id="late"></div></div>
+  </section>
+  <section class="card"><div class="card-head"><h2>السجل</h2><span class="sample-note">بيانات تجريبية — تُستبدل عند ربط الـ API</span></div><div id="list"></div></section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/admin.js"></script>
+</body>
+</html>

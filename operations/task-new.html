@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>إضافة مهمة · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="task-new" data-crumb="المهام|إضافة مهمة" data-nav="tasks">
+<main class="content">
+  <div class="page-head"><div><h1>إضافة مهمة</h1><p>تصل المهمة للموظف فوراً وتظهر في مساحة عمله.</p></div><div class="actions"><a class="btn btn-ghost" href="tasks.html">إلغاء</a></div></div>
+  <form class="card" id="taskForm" data-resource="tasks" data-redirect="task.html?id=" novalidate>
+    <div class="card-body form-grid">
+      <div class="field full"><label for="title">عنوان المهمة <span class="req">*</span></label><input class="input" id="title" name="title" required placeholder="فعل واضح + المخرج، مثال: تصميم 4 منشورات للعرض"></div>
+      <div class="field"><label for="project">المشروع <span class="req">*</span></label><select class="select" id="project" name="project" data-source="projects" required><option value="">اختر المشروع</option></select></div>
+      <div class="field"><label for="assignee">المنفّذ <span class="req">*</span></label><select class="select" id="assignee" name="assignee" data-source="employees" required><option value="">اختر الموظف</option></select></div>
+      <div class="field"><label for="priority">الأولوية</label><select class="select" id="priority" name="priority"><option value="mid">متوسطة</option><option value="high">عالية</option><option value="low">منخفضة</option></select></div>
+      <div class="field"><label for="due">تاريخ التسليم <span class="req">*</span></label><input class="input" id="due" name="due" type="date" required></div>
+      <div class="field full"><label for="desc">الوصف</label><textarea class="textarea" id="desc" name="desc" placeholder="المطلوب بالتفصيل، والروابط والملفات المرجعية…"></textarea></div>
+      <div class="field full"><label class="check"><input type="checkbox" id="needsReview" name="needsReview" checked> تحتاج مراجعة مدير التشغيل قبل الإغلاق</label></div>
+    </div>
+    <div class="form-foot"><a class="btn btn-secondary" href="tasks.html">إلغاء</a><button class="btn btn-primary" type="submit">إضافة المهمة</button></div>
+  </form>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/work.js"></script>
+</body>
+</html>

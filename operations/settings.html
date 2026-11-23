@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>الإعدادات · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="settings" data-crumb="الإدارة|الإعدادات · حسابي">
+<main class="content">
+  <div class="page-head"><div><h1>الإعدادات</h1><p>بياناتك، المظهر، والأمان.</p></div><div class="actions"></div></div>
+  <section class="grid grid-main">
+    <div class="stack">
+      <form class="card" id="profileForm"><div class="card-head"><h2>حسابي</h2></div><div class="card-body stack"><div class="row" id="meHead"></div><div class="form-grid">
+        <div class="field"><label for="pname">الاسم</label><input class="input" id="pname" name="name"></div>
+        <div class="field"><label for="ptitle">المسمى</label><input class="input" id="ptitle" name="title"></div>
+        <div class="field full"><label for="pemail">البريد الإلكتروني</label><input class="input" id="pemail" name="email" type="email" dir="ltr"></div></div></div>
+        <div class="form-foot"><button class="btn btn-primary" type="submit">حفظ</button></div></form>
+      <form class="card" id="pwForm" novalidate><div class="card-head"><h2>كلمة المرور</h2></div><div class="card-body form-grid">
+        <div class="field"><label for="oldpw">الحالية</label><input class="input" id="oldpw" name="oldpw" type="password" autocomplete="current-password"></div>
+        <div class="field"><label for="newpw">الجديدة</label><input class="input" id="newpw" name="newpw" type="password" autocomplete="new-password"><span class="error-text" id="pwErr" hidden>استخدم 8 أحرف على الأقل.</span></div></div>
+        <div class="form-foot"><button class="btn btn-primary" type="submit">تغيير كلمة المرور</button></div></form>
+    </div>
+    <div class="stack">
+      <div class="card"><div class="card-head"><h2>المظهر</h2></div><div class="card-body stack">
+        <label class="check"><input type="radio" name="theme" id="th-system" value="system"> حسب إعدادات الجهاز</label>
+        <label class="check"><input type="radio" name="theme" id="th-light" value="light"> فاتح</label>
+        <label class="check"><input type="radio" name="theme" id="th-dark" value="dark"> داكن</label></div></div>
+      <div class="card"><div class="card-head"><h2>الإشعارات</h2></div><div class="card-body stack">
+        <div class="row between"><span>مهمة جديدة مسندة لي</span><label class="switch"><input type="checkbox" id="n1" checked aria-label="مهمة جديدة"><span></span></label></div>
+        <div class="row between"><span>اقتراب موعد تسليم</span><label class="switch"><input type="checkbox" id="n2" checked aria-label="موعد تسليم"><span></span></label></div>
+        <div class="row between"><span>الملخص الأسبوعي بالبريد</span><label class="switch"><input type="checkbox" id="n3" aria-label="الملخص الأسبوعي"><span></span></label></div></div></div>
+      <div class="card"><div class="card-head"><h2>البيانات التجريبية</h2></div><div class="card-body stack"><p class="hint">التعديلات التي تجريها تُحفظ في متصفحك فقط إلى أن يُربط النظام بالـ API.</p><button class="btn btn-secondary" id="resetDemo" type="button">إعادة ضبط البيانات</button></div></div>
+    </div>
+  </section>
+</main>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/admin.js"></script>
+</body>
+</html>

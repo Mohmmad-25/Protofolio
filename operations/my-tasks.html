@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مهامي · Connect Webia</title>
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="my-tasks" data-crumb="نظرة عامة|مهامي">
+<main class="content">
+  <div class="page-head"><div><h1 id="hello">مهامي</h1><p>ابدأ بالأقرب موعداً. ضع علامة عند الإنجاز ليتحدث تقدّمك فوراً.</p></div><div class="actions"><a class="btn btn-secondary" href="board.html">لوحة الحالات</a></div></div>
+  <div class="alert info" id="demoNote" hidden>تعرض هذه الصفحة مساحة عمل الموظفة <b id="demoName"></b> كمثال، لأن الحساب الحالي ليس عليه مهام.</div>
+  <section class="grid grid-main">
+    <div class="card"><div class="card-head"><h2>مهام مفتوحة</h2></div><div class="card-body"><ul class="checklist" id="openList"></ul></div></div>
+    <div class="stack">
+      <div class="card"><div class="card-head"><h2>تقدّمي</h2></div><div class="card-body stack"><div class="chart-box sm" style="height:140px"><div id="chMine" style="position:absolute;inset:0"></div><div class="donut-center" style="place-items:end center"><div><b id="mineVal">—</b><span>منجز</span></div></div></div><div class="stat-list" id="mineStats"></div></div></div>
+      <div class="card"><div class="card-head"><h2>أنجزتُ مؤخراً</h2></div><div class="card-body"><ul class="checklist" id="doneList"></ul></div></div>
+    </div>
+  </section>
+</main>
+<script src="assets/vendor/chart-4.4.1.umd.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/dashboards.js"></script>
+</body>
+</html>
